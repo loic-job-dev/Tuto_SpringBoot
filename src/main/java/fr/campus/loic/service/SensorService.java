@@ -1,5 +1,7 @@
 package fr.campus.loic.service;
 
+import fr.campus.loic.interfaces.HeartbeatSensor;
+import fr.campus.loic.interfaces.SensorDevice;
 import fr.campus.loic.model.Sensor;
 import fr.campus.loic.repository.SensorRepository;
 import org.springframework.stereotype.Service;
@@ -7,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SensorService {
+public class SensorService implements SensorDevice {
 
     private final SensorRepository sensorRepository;
 

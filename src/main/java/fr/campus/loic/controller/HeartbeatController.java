@@ -1,6 +1,7 @@
 package fr.campus.loic.controller;
 
 import fr.campus.loic.interfaces.HeartbeatSensor;
+import fr.campus.loic.interfaces.SensorDevice;
 import fr.campus.loic.model.Sensor;
 import fr.campus.loic.service.SensorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class HeartbeatController {
     private HeartbeatSensor heartbeatSensor;
 
     @Autowired
-    private SensorService sensorService;
+    private SensorDevice sensorService;
 
     @GetMapping("/heartbeat")
     public int getHeartbeat(){
