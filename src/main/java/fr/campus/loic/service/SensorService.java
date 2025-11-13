@@ -17,7 +17,10 @@ public class SensorService implements SensorDevice {
         this.sensorRepository = sensorRepository;
     }
 
-    public List<Sensor> getAllSensors() {
+    public List<Sensor> getAllSensors() throws SensorNotExists {
+        if (sensorRepository.getAllSensors().isEmpty()) {
+            throw new SensorNotExists("No sensors found");
+        }
         return sensorRepository.getAllSensors();
     }
 
