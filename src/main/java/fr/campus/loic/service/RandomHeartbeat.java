@@ -1,0 +1,16 @@
+package fr.campus.loic.service;
+
+import fr.campus.loic.interfaces.HeartbeatSensor;
+import org.springframework.stereotype.Service;
+
+import java.util.Random;
+
+@Service
+public class RandomHeartbeat implements HeartbeatSensor {
+
+    Random random = new Random();
+    @Override
+    public int getHeartbeat() {
+        return random.nextInt(40, 230);
+    }
+}
