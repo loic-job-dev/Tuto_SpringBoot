@@ -8,9 +8,10 @@ import java.util.Random;
 @Service
 public class RandomHeartbeat implements HeartbeatSensor {
 
-    Random random = new Random();
+    private final Random RANDOM = new Random();
+
     @Override
     public int getHeartbeat() {
-        return random.nextInt(40, 230);
+        return RANDOM.nextInt(40, 230);
     }
 }
