@@ -1,10 +1,14 @@
 package fr.campus.loic.model;
 
+import jakarta.validation.constraints.NotBlank;
+
 import java.util.Random;
 
 public class Sensor {
 
     private final int ID;
+
+    @NotBlank
     private String name;
 
     public Sensor(String name){

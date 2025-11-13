@@ -4,14 +4,13 @@ import fr.campus.loic.exceptions.SensorNotExists;
 import fr.campus.loic.interfaces.HeartbeatSensor;
 import fr.campus.loic.interfaces.SensorDevice;
 import fr.campus.loic.model.Sensor;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-import static org.springframework.http.ResponseEntity.noContent;
 
 @RestController
 public class HeartbeatController {
@@ -49,7 +48,7 @@ public class HeartbeatController {
     }
 
     @PostMapping("/sensors")
-    public ResponseEntity<Sensor> addSensor(@RequestBody Sensor sensor){
+    public ResponseEntity<Sensor> addSensor(@Valid @RequestBody Sensor sensor){
         sensorService.addSensor(sensor);
         return new ResponseEntity<>(sensor, HttpStatus.CREATED);
     }
@@ -65,7 +64,7 @@ public class HeartbeatController {
     }
 
     @PutMapping("/sensors/{id}")
-    public ResponseEntity<Sensor> updateSensor(@RequestBody Sensor sensor, @PathVariable int id){
+    public ResponseEntity<Sensor> updateSensor(@Valid @RequestBody Sensor sensor, @PathVariable int id){
         try {
             sensorService.modifySensor(id, sensor);
             return new ResponseEntity<>(sensorService.getSensorById(id), HttpStatus.OK);
