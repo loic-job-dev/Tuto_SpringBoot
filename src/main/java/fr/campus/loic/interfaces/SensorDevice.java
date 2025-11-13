@@ -15,5 +15,5 @@ public interface SensorDevice {
 
     public void removeSensor(int id);
 
-    public void modifySensor(int id, String name);
+    public void modifySensor(int id, Sensor sensor);
 }

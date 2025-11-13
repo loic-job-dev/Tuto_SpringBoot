@@ -45,7 +45,7 @@ public class HeartbeatController {
     }
 
     @PutMapping("/sensors/{id}")
-    public void updateSensor(@RequestBody String name, @PathVariable int id){
-        sensorService.modifySensor(id, name);
+    public void updateSensor(@RequestBody Sensor sensor, @PathVariable int id){
+        sensorService.modifySensor(id, sensor);
     }
 }

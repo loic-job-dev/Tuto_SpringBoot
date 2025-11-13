@@ -33,9 +33,9 @@ public class SensorService implements SensorDevice {
         sensorRepository.removeSensor(id);
     }
 
-    public void modifySensor(int id, String name) {
+    public void modifySensor(int id, Sensor sensor) {
         Sensor existing = getSensorById(id);
-        existing.setName(name);
+        existing.setName(sensor.getName());
         sensorRepository.addSensor(existing);
     }
 }
